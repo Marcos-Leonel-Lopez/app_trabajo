@@ -19,7 +19,6 @@ class Personal {
     }
 }
 
-
 let formulario= document.getElementById("registro");
 let imputNombre= document.getElementById("nombre");
 let listaDeTrabjadores = document.getElementById("lista");
