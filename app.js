@@ -35,14 +35,13 @@ if (parseInt(localStorage.getItem("trabajador_listaLS"))) {
     n_id = parseInt(localStorage.getItem("trabajador_listaLS"));
     console.log(n_id);
     console.log(personas);
-    alert(`ok?`);
     personas.forEach( trabajador => {
-        listaDeTrabjadores.innerHTML += `<li> Usuario: ${trabajador.Nombre} puesto: ${trabajador.Puesto} salario/hora: $ ${trabajador.porHora} </li>`; 
+    listaDeTrabjadores.innerHTML += `<li> Usuario: ${trabajador.Nombre} puesto: ${trabajador.Puesto} salario/hora: $ ${trabajador.porHora} </li>`; 
     });
 
 }
 else {
-    alert(`no hay nada en LS`);
+    console.log(`no hay nada en LS`);
 }
 
 
