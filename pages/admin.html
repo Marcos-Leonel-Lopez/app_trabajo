@@ -13,12 +13,20 @@
 <body>
   <h2>Trabajadores</h2>
   <p class="colorRojo" id="error"></p>
-  <form id="registro">
-    <span>Nombre:</span><input id="nombre" type="text">
-    <span>Puesto:</span><input id="puesto" type="text">
-    <span>Salario:</span><input id="pesos" type="text">
-    <input type="submit" value="Enviar">
+  <div >
+    <form id="registro" class="casillas">
+      <div><label>Nombre: </label><input id="nombre" type="text"></div>
+      <div><label>Puesto: </label><input id="puesto" type="text"></div>
+      <div><label>Salario: </label><input id="pesos" type="text"></div>
+      <div><input type="submit" value="Agregar"></div>
+   </form> 
+  </div>
+  <div>
+    <form id="eliminar" class="casillas">
+      <div><label>Id: </label><input id="id" type="text"></div>
+      <div><input type="submit" value="Eliminar"></div>
   </form> 
+  </div>
   <div>
     <ul id="lista">
     </ul>

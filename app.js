@@ -56,7 +56,7 @@ else {
     if(nomb !=='' && puesto !=='' && salario_hora !==''){
         errorParrafo.innerText = null;
         console.log(formulario);
-        listaDeTrabjadores.innerHTML += `<li> Usuario: ${nomb} puesto: ${puesto} salario/hora: $ ${salario_hora} </li>`;
+        listaDeTrabjadores.innerHTML += `<li id="lista_${n_id}" >Id:${n_id}  Usuario: ${nomb} puesto: ${puesto} salario/hora: $ ${salario_hora} </li>`;
         personas.push(new Personal(n_id, nomb, 0, 0, puesto,[], [], [], [], [], [], salario_hora));
         n_id++;
         console.log(personas);
@@ -69,6 +69,8 @@ else {
     }
     });
     
+
+
     
     
 

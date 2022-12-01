@@ -46,3 +46,19 @@ body{
     background-repeat: repeat-y;
     background-size: cover;
    }
+
+   #registro{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: flex-end;
+   }
+   #eliminar{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+   }
+   .casillas{
+    display: flex;
+    justify-content: space-evenly;
+
+   }
