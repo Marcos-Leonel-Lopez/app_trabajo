@@ -86,7 +86,7 @@ eliminar.addEventListener("submit", (e) => {
     let x = i - 1;
     let eliminar = e.target;
     if (identidad !== '') {
-        if (x < personas.length && x > 0) {
+        if (x < personas.length && x >= 0) {
             errorParrafo.innerText = null;
             personas.splice(x, 1);
             console.log('lo elimino');

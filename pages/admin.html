@@ -14,18 +14,26 @@
   <h2>Trabajadores</h2>
   <p class="colorRojo" id="error"></p>
   <div >
-    <form id="registro" class="casillas">
+    <fieldset>
+      <legend class="titulo">AGREGAR PERSONAL AL LISTADO</legend>
+      <form id="registro" class="casillas">
       <div><label>Nombre: </label><input id="nombre" type="text"></div>
       <div><label>Puesto: </label><input id="puesto" type="text"></div>
       <div><label>Salario: </label><input id="pesos" type="text"></div>
       <div><input type="submit" value="Agregar"></div>
    </form> 
+  </fieldset>
+    
   </div>
   <div>
-    <form id="eliminar" class="casillas">
+    <fieldset>
+      <legend class="titulo"> ELIMINAR PERSONAL DEL LISTADO</legend>
+      <form id="eliminar" class="casillas">
       <div><label>Id: </label><input id="identidad" type="text"></div>
       <div><input type="submit" value="Eliminar"></div>
-  </form> 
+  </form>
+    </fieldset>
+     
   </div>
   <div>
     <ul id="lista">

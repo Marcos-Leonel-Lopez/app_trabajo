@@ -18,6 +18,7 @@ body{
   }
 
   .colorRojo{
+    font-size: 30px;
     color: red;
   }
   a{
@@ -61,4 +62,11 @@ body{
     display: flex;
     justify-content: space-evenly;
 
+   }
+
+   .titulo{
+    text-align: end;
+    font-size: 15px;
+    margin-bottom: 5px;
+    color:  aliceblue;
    }
