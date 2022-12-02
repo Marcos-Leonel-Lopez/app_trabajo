@@ -1,6 +1,7 @@
 let personas = [];
-let n_id =1;
+let n_id = 1;
 const guardaLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+const eliminaLocal = (clave) => { localStorage.removeItem(clave) }
 
 class Personal {
     constructor(Id, Nombre, Horas, Salario, Puesto, entrada, fecha_entrada, salida, fecha_salida, dia_s, dia_h, porHora) {
@@ -19,38 +20,36 @@ class Personal {
     }
 }
 
-function muestra(){
-    
-
-}
-
-let registrar= document.getElementById("registro");
-let eliminar= document.getElementById("eliminar")
-let imputNombre= document.getElementById("nombre");
-let listaDeTrabjadores = document.getElementById("lista");
-let errorParrafo= document.getElementById("error");
-let i=0;
-
-
-
-if (parseInt(localStorage.getItem("trabajador_listaLS"))) {
-    console.log(`LS cargado`);
-
+function muestra() {
     personas = JSON.parse(localStorage.getItem("trabajadoresLS"));
     n_id = parseInt(localStorage.getItem("trabajador_listaLS"));
     console.log(n_id);
     console.log(personas);
-    personas.forEach( trabajador => {
-    listaDeTrabjadores.innerHTML += `<li id="lista_${trabajador.Id}"> Id:${trabajador.Id}         Usuario: ${trabajador.Nombre} puesto: ${trabajador.Puesto} salario/hora: $ ${trabajador.porHora} </li>`; 
+    personas.forEach(trabajador => {
+        listaDeTrabjadores.innerHTML += `<li id="lista_${trabajador.Id}"> Id:${trabajador.Id}         Usuario: ${trabajador.Nombre} puesto: ${trabajador.Puesto} salario/hora: $ ${trabajador.porHora} </li>`;
     });
+}
 
+let registrar = document.getElementById("registro");
+let eliminar = document.getElementById("eliminar")
+let imputNombre = document.getElementById("nombre");
+let listaDeTrabjadores = document.getElementById("lista");
+let errorParrafo = document.getElementById("error");
+let i = 0;
+
+
+
+if (parseInt(localStorage.getItem("trabajador_listaLS")) && JSON.parse(localStorage.getItem("trabajadoresLS"))) {
+    console.log(`LS cargado`);
+    muestra();
 }
 else {
+    eliminaLocal("trabajadoresLS");
+    eliminaLocal("trabajador_listaLS");
     console.log(`no hay nada en LS`);
 }
 
-
-    registrar.addEventListener("submit", (e)=>{
+registrar.addEventListener("submit", (e) => {
     e.preventDefault();
     let nomb = document.querySelector("#nombre").value.toUpperCase();
     let puesto = document.querySelector("#puesto").value.toUpperCase();
@@ -59,59 +58,57 @@ else {
     console.log(puesto);
     console.log(salario_hora);
     let registrar = e.target;
-    if(nomb !=='' && puesto !=='' && salario_hora !=='' ){
+    if (nomb !== '' && puesto !== '' && salario_hora !== '') {
         let i = parseFloat(salario_hora);
         errorParrafo.innerText = null;
         console.log(registrar);
         listaDeTrabjadores.innerHTML += `<li id="lista_${n_id}"> Id:${n_id}         Usuario: ${nomb} puesto: ${puesto} salario/hora: $ ${i} </li>`;
-        personas.push(new Personal(n_id, nomb, 0, 0, puesto,[], [], [], [], [], [], salario_hora));
+        personas.push(new Personal(n_id, nomb, 0, 0, puesto, [], [], [], [], [], [], salario_hora));
         n_id++;
         console.log(personas);
         guardaLocal("trabajadoresLS", JSON.stringify(personas));
-         guardaLocal("trabajador_listaLS", n_id);
-        
+        guardaLocal("trabajador_listaLS", n_id);
+
     }
-    else{
+    else {
         errorParrafo.innerText = "FALTAN DATOS!!!";
     }
-    });
+});
 
 
 eliminar.addEventListener("submit", (e) => {
-    e.preventDefault();
 
     let identidad = document.querySelector("#identidad").value;
     console.log(identidad);
     personas = JSON.parse(localStorage.getItem("trabajadoresLS"));
     n_id = parseInt(localStorage.getItem("trabajador_listaLS"));
-
+    let i = parseFloat(identidad);
+    let x = i - 1;
     let eliminar = e.target;
     if (identidad !== '') {
-        let i = parseFloat(identidad);
-        errorParrafo.innerText = null;
-
-        let x = i - 1;
-
-        personas.splice(x, 1);
-        console.log('lo elimino');
-        for (let j = x; j < personas.length; j++) {
-            personas[j].Id -= 1;
+        if (x < personas.length && x > 0) {
+            errorParrafo.innerText = null;
+            personas.splice(x, 1);
+            console.log('lo elimino');
+            for (let j = x; j < personas.length; j++) {
+                personas[j].Id -= 1;
+            }
+            n_id -= 1;
+            listaDeTrabjadores.remove();
+            guardaLocal("trabajadoresLS", JSON.stringify(personas));
+            guardaLocal("trabajador_listaLS", n_id);
+            muestra();
         }
-        n_id -= 1;
-        listaDeTrabjadores.remove();
-
-        personas.forEach( trabajador => {
-            listaDeTrabjadores.innerHTML += `<li id="lista_${trabajador.Id}"> Id:${trabajador.Id}         Usuario: ${trabajador.Nombre} puesto: ${trabajador.Puesto} salario/hora: $ ${trabajador.porHora} </li>`; 
-            });
-
-        guardaLocal("trabajadoresLS", JSON.stringify(personas));
-        guardaLocal("trabajador_listaLS", n_id);
+        else {
+            e.preventDefault();
+            errorParrafo.innerText = "ID DESCONOCIDO!!!";
+        }
     }
-
     else {
+        e.preventDefault();
         errorParrafo.innerText = "FALTAN DATOS!!!";
     }
-    });
+});
 
 
     
