@@ -26,7 +26,12 @@ function muestra() {
     console.log(n_id);
     console.log(personas);
     personas.forEach(trabajador => {
-        listaDeTrabjadores.innerHTML += `<li id="lista_${trabajador.Id}"> Id:${trabajador.Id}         Usuario: ${trabajador.Nombre} puesto: ${trabajador.Puesto} salario/hora: $ ${trabajador.porHora} </li>`;
+        listaDeTrabjadores.innerHTML += `<tr id="lista_${trabajador.Id}">
+        <td>${trabajador.Id}</td>
+        <td>${trabajador.Nombre}</td>
+        <td>${trabajador.Puesto}</td>
+        <td>${trabajador.porHora}</td>
+      </tr>`;
     });
 }
 
@@ -62,7 +67,12 @@ registrar.addEventListener("submit", (e) => {
         let i = parseFloat(salario_hora);
         errorParrafo.innerText = null;
         console.log(registrar);
-        listaDeTrabjadores.innerHTML += `<li id="lista_${n_id}"> Id:${n_id}         Usuario: ${nomb} puesto: ${puesto} salario/hora: $ ${i} </li>`;
+        listaDeTrabjadores.innerHTML += `<tr id="lista_${n_id}">
+        <td>${n_id}</td>
+        <td>${nomb}</td>
+        <td>${puesto}</td>
+        <td>${i}</td>
+        `;
         personas.push(new Personal(n_id, nomb, 0, 0, puesto, [], [], [], [], [], [], salario_hora));
         n_id++;
         console.log(personas);

@@ -45,21 +45,56 @@ a {
 }
 
 #listaTrabajadores {
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
+#listaTrabajadores h2, #listaTrabajadores p {
+  text-align: center;
+}
 #listaTrabajadores #registro, #listaTrabajadores #eliminar {
   flex-direction: row;
+  justify-content: center;
   margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-bottom: 10px;
   align-items: flex-end;
-  padding: 1rem 5rem 2rem 5rem;
-  margin-left: 50px;
+  padding: 1rem 50vh 1rem 50vh;
+  box-sizing: none;
+}
+#listaTrabajadores #registro input, #listaTrabajadores #eliminar input {
+  border-radius: 30px;
+  width: 200px;
+  outline: none;
+  padding: 10px 20px;
+  border: 1px solid #c9c9c9;
+  box-sizing: border-box;
+  padding-right: 50px;
+  margin: 0 1rem 0 1rem;
+}
+#listaTrabajadores #registro .bton, #listaTrabajadores #eliminar .bton {
+  outline: none;
+  border: none;
+  background-color: #6236ff;
+  color: #ffffff;
+  padding: 10px 30px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+}
+#listaTrabajadores #registro .bton:hover, #listaTrabajadores #eliminar .bton:hover {
+  background-color: #552bee;
 }
 #listaTrabajadores #eliminar {
   margin-top: 10px;
   margin-bottom: 10px;
+  align-items: flex-end;
   justify-content: space-evenly;
+}
+#listaTrabajadores #eliminar #clearAll {
+  display: inline-block;
 }
 #listaTrabajadores .container {
   display: flex;
@@ -74,39 +109,6 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
-}
-#listaTrabajadores .container .table_header button {
-  outline: none;
-  border: none;
-  background-color: #6236ff;
-  color: #ffffff;
-  padding: 10px 30px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  font-size: 14px;
-  cursor: pointer;
-}
-#listaTrabajadores .container .table_header button:hover {
-  background-color: #552bee;
-}
-#listaTrabajadores .container .table_header .input_search {
-  position: relative;
-}
-#listaTrabajadores .container .table_header .input_search input {
-  border-radius: 30px;
-  width: 200px;
-  outline: none;
-  padding: 10px 20px;
-  border: 1px solid #c9c9c9;
-  box-sizing: border-box;
-  padding-right: 50px;
-}
-#listaTrabajadores .container .table_header .input_search #search {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  margin-right: 1rem;
-  transform: translate(-50%, -50%);
 }
 #listaTrabajadores .container table {
   border-spacing: 0;
@@ -123,18 +125,18 @@ a {
   text-align: center;
   border-bottom: 1px solid #dfdfdf;
 }
+#listaTrabajadores .container table tbody tr td button {
+  border: none;
+  align-self: center;
+  color: #dfdfdf;
+}
 #listaTrabajadores .container table tbody tr td #icons {
   font-size: 20px;
   cursor: pointer;
-  margin-left: 10px;
   color: #797979;
 }
 #listaTrabajadores .container table tbody tr:hover {
   background-color: #f5f5f5;
-}
-#listaTrabajadores .container .table_fotter {
-  margin-top: 1rem;
-  padding: 0 30px 20px;
 }
 #listaTrabajadores .volver {
   display: flex;
