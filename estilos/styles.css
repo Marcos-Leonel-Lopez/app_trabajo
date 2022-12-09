@@ -73,7 +73,7 @@ a {
   padding-right: 50px;
   margin: 0 1rem 0 1rem;
 }
-#listaTrabajadores #registro .bton, #listaTrabajadores #eliminar .bton {
+#listaTrabajadores #registro button, #listaTrabajadores #eliminar button {
   outline: none;
   border: none;
   background-color: #6236ff;
@@ -84,17 +84,21 @@ a {
   font-size: 14px;
   cursor: pointer;
 }
-#listaTrabajadores #registro .bton:hover, #listaTrabajadores #eliminar .bton:hover {
+#listaTrabajadores #registro button:hover, #listaTrabajadores #eliminar button:hover {
   background-color: #552bee;
 }
 #listaTrabajadores #eliminar {
   margin-top: 10px;
   margin-bottom: 10px;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-evenly;
+}
+#listaTrabajadores #eliminar button {
+  margin-right: 10px;
 }
 #listaTrabajadores #eliminar #clearAll {
   display: inline-block;
+  background-color: red;
 }
 #listaTrabajadores .container {
   display: flex;
