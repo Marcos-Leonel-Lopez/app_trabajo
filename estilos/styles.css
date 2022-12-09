@@ -1,72 +1,143 @@
-main{
-    background-color: dimgray;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    text-align: center;
-    font-family: 'Fredoka One', cursive;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1002%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='url(%23SvgjsLinearGradient1003)'%3e%3c/rect%3e%3cpath d='M1440 0L1319.02 0L1440 1.55z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1319.02 0L1440 1.55L1440 266.34000000000003L965.01 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M965.01 0L1440 266.34000000000003L1440 366.19000000000005L784.88 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M784.88 0L1440 366.19000000000005L1440 375.97L612.69 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 560L324.08 560L0 439.15999999999997z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 439.15999999999997L324.08 560L878.0899999999999 560L0 203.61999999999998z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 203.62L878.0899999999999 560L1172.3799999999999 560L0 103.29z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 103.29000000000002L1172.3799999999999 560L1255.11 560L0 35.030000000000015z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1002'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='15.28%25' y1='-39.29%25' x2='84.72%25' y2='139.29%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1003'%3e%3cstop stop-color='%230e2a47' offset='0'%3e%3c/stop%3e%3cstop stop-color='%2300459e' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
-  }
-  h2 ,h1 {
-    font-size: 62px;
-    color: white;
-  } 
 
-  #lista{
-    list-style-type: none;
-    color: aliceblue;
-    font-size: 20px;
-  }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #eef4fd;
+  font-family: "Raleway", sans-serif;
+}
 
-  .colorRojo{
-    font-size: 30px;
-    color: red;
-  }
-  a{
-    width: 50px;
-    font-weight: 700px;
-    
-    color: rgb(193, 194, 175);
-    padding: 1rem;
-    margin: 5rem;
-    border-radius: 10px;
-    font-size: 30px;
-   }
+h2, h1, .pregunta {
+  font-size: 62px;
+  color: rgb(144, 98, 98);
+}
 
-   .btn_ppl{
-    background-color:  rgb(22, 18, 82);
-   }
+.colorRojo {
+  font-size: 30px;
+  color: red;
+}
 
-   .pregunta{
-    font-size: 62px;
-    color: white;
-   }
-   
-   body{
-    display: flex;
-    flex-direction: column;
-    background-repeat: repeat-y;
-    background-size: cover;
-   }
+a {
+  width: 50px;
+  font-weight: 700px;
+  color: rgb(193, 194, 175);
+  padding: 1rem;
+  margin: 5rem;
+  border-radius: 10px;
+  font-size: 30px;
+}
 
-   #registro{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    align-items: flex-end;
-   }
-   #eliminar{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    justify-content: space-evenly;
-   }
-   .casillas{
-    display: flex;
-    justify-content: space-evenly;
+.btn_ppl {
+  background-color: rgb(22, 18, 82);
+}
 
-   }
+.principal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
 
-   .titulo{
-    text-align: end;
-    font-size: 15px;
-    margin-bottom: 5px;
-    color:  aliceblue;
-   }
+#listaTrabajadores {
+  flex-direction: column;
+  justify-content: space-around;
+}
+#listaTrabajadores #registro, #listaTrabajadores #eliminar {
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: flex-end;
+  padding: 1rem 5rem 2rem 5rem;
+  margin-left: 50px;
+}
+#listaTrabajadores #eliminar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: space-evenly;
+}
+#listaTrabajadores .container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 8px 8px 5px 0px rgba(189, 189, 189, 0.7490196078);
+  width: 80%;
+  background-color: #ffffff;
+  border-radius: 30px;
+}
+#listaTrabajadores .container .table_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+#listaTrabajadores .container .table_header button {
+  outline: none;
+  border: none;
+  background-color: #6236ff;
+  color: #ffffff;
+  padding: 10px 30px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+}
+#listaTrabajadores .container .table_header button:hover {
+  background-color: #552bee;
+}
+#listaTrabajadores .container .table_header .input_search {
+  position: relative;
+}
+#listaTrabajadores .container .table_header .input_search input {
+  border-radius: 30px;
+  width: 200px;
+  outline: none;
+  padding: 10px 20px;
+  border: 1px solid #c9c9c9;
+  box-sizing: border-box;
+  padding-right: 50px;
+}
+#listaTrabajadores .container .table_header .input_search #search {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-right: 1rem;
+  transform: translate(-50%, -50%);
+}
+#listaTrabajadores .container table {
+  border-spacing: 0;
+  margin-top: 1rem;
+}
+#listaTrabajadores .container table thead {
+  background-color: #fff7b3;
+}
+#listaTrabajadores .container table thead th {
+  padding: 10px;
+}
+#listaTrabajadores .container table tbody tr td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #dfdfdf;
+}
+#listaTrabajadores .container table tbody tr td #icons {
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  color: #797979;
+}
+#listaTrabajadores .container table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+#listaTrabajadores .container .table_fotter {
+  margin-top: 1rem;
+  padding: 0 30px 20px;
+}
+#listaTrabajadores .volver {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}/*# sourceMappingURL=styles.css.map */
