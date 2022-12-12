@@ -5,7 +5,13 @@
     h2,p{
         text-align: center;
     }
-    
+    // .icono{
+    //     position: absolute;
+    //             top: 50%;
+    //             right: 0;
+    //             margin-right: 1rem;
+    //             transform: translate(-50%, -50%);
+    // }
 
     #registro,#eliminar{
         flex-direction: row;
@@ -17,16 +23,26 @@
         align-items: flex-end;
         padding: 1rem 50vh 1rem 50vh;
         box-sizing: none ;
-        
-        input{
-            border-radius: 30px;
-            width: 200px;
-            outline: none;
-            padding: 10px 20px;
-            border: 1px solid #c9c9c9;
-            box-sizing: border-box;
-            padding-right: 50px ;
-            margin: 0 1rem 0 1rem;
+    
+        .input_search{
+            position: relative;
+            input{
+                border-radius: 30px;
+                width: 200px;
+                outline: none;
+                padding: 10px 20px;
+                border: 1px solid #c9c9c9;
+                box-sizing: border-box;
+                padding-right: 50px ;
+            }
+            .icono{
+                position: absolute;
+                top: 50%;
+                right: 0;
+                margin-right: 1rem;
+                transform: translate(-50%, -50%);
+
+            }
         }
         button{
             outline: none;

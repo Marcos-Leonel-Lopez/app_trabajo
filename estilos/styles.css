@@ -1,3 +1,4 @@
+@import "toastify-js/src/toastify.css";
 * {
   margin: 0;
   padding: 0;
@@ -63,7 +64,10 @@ a {
   padding: 1rem 50vh 1rem 50vh;
   box-sizing: none;
 }
-#listaTrabajadores #registro input, #listaTrabajadores #eliminar input {
+#listaTrabajadores #registro .input_search, #listaTrabajadores #eliminar .input_search {
+  position: relative;
+}
+#listaTrabajadores #registro .input_search input, #listaTrabajadores #eliminar .input_search input {
   border-radius: 30px;
   width: 200px;
   outline: none;
@@ -71,7 +75,13 @@ a {
   border: 1px solid #c9c9c9;
   box-sizing: border-box;
   padding-right: 50px;
-  margin: 0 1rem 0 1rem;
+}
+#listaTrabajadores #registro .input_search .icono, #listaTrabajadores #eliminar .input_search .icono {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-right: 1rem;
+  transform: translate(-50%, -50%);
 }
 #listaTrabajadores #registro button, #listaTrabajadores #eliminar button {
   outline: none;

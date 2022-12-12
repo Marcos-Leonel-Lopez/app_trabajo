@@ -36,7 +36,8 @@ function muestra() {
 }
 
 let registrar = document.getElementById("registro");
-let eliminar = document.getElementById("eliminar")
+let eliminar = document.getElementById("eliminar");
+let eliminarTodo = document.getElementById("clearAll")
 let imputNombre = document.getElementById("nombre");
 let listaDeTrabjadores = document.getElementById("lista");
 let errorParrafo = document.getElementById("error");
@@ -59,14 +60,14 @@ registrar.addEventListener("submit", (e) => {
     let nomb = document.querySelector("#nombre").value.toUpperCase();
     let puesto = document.querySelector("#puesto").value.toUpperCase();
     let salario_hora = document.querySelector("#pesos").value;
-    console.log(nomb);
-    console.log(puesto);
-    console.log(salario_hora);
+    // console.log(nomb);
+    // console.log(puesto);
+    // console.log(salario_hora);
     let registrar = e.target;
     if (nomb !== '' && puesto !== '' && salario_hora !== '') {
         let i = parseFloat(salario_hora);
         errorParrafo.innerText = null;
-        console.log(registrar);
+        console.log(n_id);
         listaDeTrabjadores.innerHTML += `<tr id="lista_${n_id}">
         <td>${n_id}</td>
         <td>${nomb}</td>
@@ -78,6 +79,14 @@ registrar.addEventListener("submit", (e) => {
         console.log(personas);
         guardaLocal("trabajadoresLS", JSON.stringify(personas));
         guardaLocal("trabajador_listaLS", n_id);
+        Toastify({
+            text: `${nomb} AGREGADO`,
+            duration: 2000,
+            className: "info",
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            }
+          }).showToast();
 
     }
     else {
@@ -87,7 +96,7 @@ registrar.addEventListener("submit", (e) => {
 
 
 eliminar.addEventListener("submit", (e) => {
-
+    
     let identidad = document.querySelector("#identidad").value;
     console.log(identidad);
     personas = JSON.parse(localStorage.getItem("trabajadoresLS"));
@@ -96,7 +105,10 @@ eliminar.addEventListener("submit", (e) => {
     let x = i - 1;
     let eliminar = e.target;
     if (identidad !== '') {
+        console.log(`antes detosty`);
+        
         if (x < personas.length && x >= 0) {
+            
             errorParrafo.innerText = null;
             personas.splice(x, 1);
             console.log('lo elimino');
@@ -120,7 +132,31 @@ eliminar.addEventListener("submit", (e) => {
     }
 });
 
-
+eliminarTodo.addEventListener('click',() =>{ 
+    Swal.fire({
+        title: 'Esta seguro de eliminar todo?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, seguro',
+        cancelButtonText: 'No, no quiero'
+    }).then((result)=>{
+        if(result.isConfirmed){
+            Swal.fire({
+                title: 'Borrados!',
+                icon: 'success',
+                text: 'El listado se limpio'
+            })
+            listaDeTrabjadores.innerHTML='';
+            eliminaLocal("trabajadoresLS");
+            eliminaLocal("trabajador_listaLS");
+            n_id = 1;
+            personas = [];
+            console.log(`reset de peersonas e id`);
+            guardaLocal("trabajadoresLS", JSON.stringify(personas));
+            guardaLocal("trabajador_listaLS", n_id);
+        }
+    })   
+ });
     
     
 
@@ -147,37 +183,6 @@ eliminar.addEventListener("submit", (e) => {
 // let dia = 1;
 // const guardaLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 
-// function listado(j) {
-//     for (let i = 0; i < j; i++) {
-//         console.log(`${trabajadores[i].Id}) ${trabajadores[i].Nombre} - ${trabajadores[i].Puesto}`);
-//     }
-// }
-
-// function eliminar() {
-//     console.log('Que nombre desea eliminar del sistema?');
-//     listado(trabajadores.length);
-//     let i = parseInt(prompt('Que nombre desea eliminar del sistema?'));
-//     let x = i - 1;
-//     let k = prompt(`Desea eliminar a ${trabajadores[x].Nombre} ? S/N`);
-//     if (k == 's') {
-//         trabajadores.splice(x, 1);
-//         alert('lo elimino');
-//         for (let j = x; j < trabajadores.length; j++) {
-//             trabajadores[j].Id -= 1;
-//         }
-//         n_id -= 1;
-//         alert('lista actualizada');
-//         listado(trabajadores.length);
-//     }
-//     else {
-//         alert('no lo elimono');
-//     }
-//     alert('termino');
-//     guardaLocal("trabajadoresLS",JSON.stringify(trabajadores));
-//     guardaLocal("trabajador_listaLS",n_id);
-//     console.log(trabajadores);
-//     console.log(n_id);
-// }
 
 // class Personal {
 //     constructor(Id, Nombre, Horas, Salario, Puesto, entrada, fecha_entrada, salida, fecha_salida, dia_s, dia_h, porHora) {
@@ -197,103 +202,11 @@ eliminar.addEventListener("submit", (e) => {
 // }
 
 
-// function crearLista() {
-//     let cantidad = parseInt(prompt("Cuantos trabajadores registrara?"));
-//     do {
-//         let nomb = prompt("Nombre:").toUpperCase();
-//         let puesto = prompt("Puesto").toUpperCase();
-//         let porHora =parseFloat(prompt(`Cuanto cobrara por hora?`))
-//         trabajadores.push(new Personal(n_id, nomb, 0, 0, puesto,[], [], [], [], [], [], porHora));
-//         n_id++;
-//         cantidad--;
-//     } while (cantidad > 0)
-//     guardaLocal("trabajadoresLS", JSON.stringify(trabajadores));
-//     guardaLocal("trabajador_listaLS", n_id);
-// }
-
-// function admin() {
-
-//     let k = prompt(`1)Registrar\n2)Eliminar\n3)Planta actual`);
-//     switch (k) {
-//         case '1':
-//             crearLista();
-//             alert('lista creada');
-//             break;
-//         case '2':
-//             console.log(trabajadores);
-//              localStorage.removeItem("trabajadoresLS");
-
-//             eliminar();
-//             alert('elimino un nombre de la lista');
-//             break;
-//         case '3':
-//             let j = trabajadores.length;
-//             console.log(`Hay ${j} trabajadrores:`);
-//             listado(j);
-//             console.log(trabajadores);
-//             break;
-//         default:
-//             break;
-//     }
-// }
 
 
 
 
-// if (parseInt(localStorage.getItem("trabajador_listaLS"))) {
-//     console.log(`LS cargado`);
 
-//      trabajadores = JSON.parse(localStorage.getItem("trabajadoresLS"));
-//      n_id = parseInt(localStorage.getItem("trabajador_listaLS"));
-//      console.log(n_id);
-//      console.log(trabajadores);
-//      alert(`ok?`);
-    
-// }
-// else {
-//     console.log(`no hay nada en LS`);
-// }
-
-// do {
-//     if (i == 0) {
-//         config = prompt(`Accerder como: 1)Administrar planta\n2)Checkin/Check out\n3)Cerrar`);
-//     }
-//     else {
-//         config = "3";
-//     }
-//     switch (config) {
-//         case "1":
-//             admin();
-//             break;
-//         case "2":
-//             listado(trabajadores.length);
-//             check();
-//             break;
-//         case "3":
-//             let k = prompt("Seguro que desea salir? 1)SI\n2)NO");
-//             if (k == "1") {
-//                 alert("ADIOS!!!");
-//                 i++;
-//                 config = "ESC";
-//             }
-//             else if (k == "2") {
-//                 console.log("no salió del programa");
-//                 i = 0;
-//             }
-//             else if (k != 1 && k != 2) {
-//                 console.log("Opcion invalida");
-//                 i++;
-//             }
-//             break;
-//         case "ESC":
-//             config = "ESC";
-//             break;
-//         default:
-//             console.log("Opcion invalida");
-//             i = 0;
-//             break;
-//     }
-// } while (config != "ESC")
 
 // //--------------------------------------------------------------------
 

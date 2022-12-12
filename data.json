@@ -1,0 +1,72 @@
+[
+    {
+        "Id": 1,
+        "Nombre": "MARCOS LOPEZ",
+        "Horas": 0,
+        "Salario": 0,
+        "Puesto": "CHEF",
+        "entrada": [],
+        "fecha_entrada": [],
+        "salida": [],
+        "fecha_salida": [],
+        "dia_s": [],
+        "dia_h": [],
+        "porHora": 16
+    },
+    {
+        "Id": 2,
+        "Nombre": "LUCIANA VEGA",
+        "Horas": 0,
+        "Salario": 0,
+        "Puesto": "CAJERA",
+        "entrada": [],
+        "fecha_entrada": [],
+        "salida": [],
+        "fecha_salida": [],
+        "dia_s": [],
+        "dia_h": [],
+        "porHora": 14.5
+    },
+    {
+        "Id": 3,
+        "Nombre": "JUAN PEREZ",
+        "Horas": 0,
+        "Salario": 0,
+        "Puesto": "PARRILLERO",
+        "entrada": [],
+        "fecha_entrada": [],
+        "salida": [],
+        "fecha_salida": [],
+        "dia_s": [],
+        "dia_h": [],
+        "porHora": 16
+    },
+    {
+        "Id": 4,
+        "Nombre": "PAULA LORCA",
+        "Horas": 0,
+        "Salario": 0,
+        "Puesto": "MESERA",
+        "entrada": [],
+        "fecha_entrada": [],
+        "salida": [],
+        "fecha_salida": [],
+        "dia_s": [],
+        "dia_h": [],
+        "porHora": 10
+    },
+    {
+        "Id": 5,
+        "Nombre": "ALEJANDRA MORENO",
+        "Horas": 0,
+        "Salario": 0,
+        "Puesto": "BACHERO",
+        "entrada": [],
+        "fecha_entrada": [],
+        "salida": [],
+        "fecha_salida": [],
+        "dia_s": [],
+        "dia_h": [],
+        "porHora": 14.5
+    }
+]

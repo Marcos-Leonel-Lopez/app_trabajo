@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../estilos/styles.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <title>ADMIN</title>
 </head>
 
@@ -22,15 +23,15 @@
   </div>
 
   <form class="container" id="registro">
-    <div><input id="nombre" type="text" placeholder="Nombre"></div>
-    <div><input id="puesto" type="text" placeholder="Puesto"></div>
-    <div><input id="pesos" type="text" placeholder="Salario"></div>
-    <div> <button type="submit" class="bton"> <span>Agregar</span> </button> </div>
+    <div class="input_search"><input id="nombre" type="text" placeholder="Nombre"><i class="bi bi-person-plus icono"></i></i></div>
+    <div class="input_search"><input id="puesto" type="text" placeholder="Puesto"><i class="bi bi-clipboard2 icono"></i></div>
+    <div class="input_search"><input id="pesos" type="text" placeholder="Salario"><i class="bi bi-cash-coin icono"></i></div>
+    <div class="input_search"><button type="submit" class="bton"> <span>Agregar</span> </button> </div>
     <!-- <div><input id="boton" type="submit" value="Agregar"></div> -->
   </form>
 
   <form id="eliminar" class="container">
-    <div><input id="identidad" type="text" placeholder="Id"></div>
+    <div class="input_search"><input id="identidad" type="text" placeholder="Id"><i class="bi bi-person-x icono"></i></div>
     <div> <button type="submit" > <span>Eliminar </span> </button> </div>
     <div> <button type="button" id="clearAll"> <span> Eliminar Todo</span></button> </div>
     <!-- <div><input type="submit" value="Eliminar"></div> -->
@@ -73,6 +74,8 @@
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
     </script>
   <script src="../app.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>
