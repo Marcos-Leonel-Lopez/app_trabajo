@@ -55,13 +55,13 @@ a {
 }
 #listaTrabajadores #registro, #listaTrabajadores #eliminar {
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
   align-items: flex-end;
-  padding: 1rem 50vh 1rem 50vh;
+  padding: 1rem;
   box-sizing: none;
 }
 #listaTrabajadores #registro .input_search, #listaTrabajadores #eliminar .input_search {
