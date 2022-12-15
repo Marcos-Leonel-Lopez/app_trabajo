@@ -203,7 +203,8 @@ console.log(i);
     }
 });
 
-eliminarTodo.addEventListener('click', async () => {
+eliminarTodo.addEventListener('click', async (e) => {
+    e.preventDefault();
     eliminarTodo.disabled = true;
     Swal.fire({
         title: 'Esta seguro de eliminar todo?',
@@ -219,6 +220,9 @@ eliminarTodo.addEventListener('click', async () => {
                 text: 'El listado se limpio'
             })
             listaDeTrabjadores.innerHTML = '';
+            personas.forEach( (e) => {
+                eliminaBD(e.id);
+            });
             eliminaLocal("trabajadoresLS");
             eliminaLocal("idLS");
             eliminaLocal("fichaLS")
@@ -229,6 +233,7 @@ eliminarTodo.addEventListener('click', async () => {
             guardaLocal("trabajadoresLS", JSON.stringify(personas));
             guardaLocal("idLS", n_id);
             guardaLocal("fichaLS",n_ficha);
+            
         }
         else {
             eliminarTodo.disabled = false;
@@ -294,10 +299,9 @@ eliminarTodo.addEventListener('click', async () => {
 //     return b - a;
 // }
 
-// function diario(jornal) {
+// function diario(jornal,hora) {
 //     let total;
 //     let jornada = 8;
-//     let hora = 12.5;
 //     let over = hora * 1.5;
 
 //     if (jornal > 8) {
@@ -313,22 +317,6 @@ eliminarTodo.addEventListener('click', async () => {
 
 
 
-
-
-// // -- Arrays para evitar la carga de los datos de cada uno de los trabajadores a fines de simplificar la simulacion
-// // -- Dicho proceso se realiza en lineas de codigo arriba
-
-// trabajadores.push(new Personal(1, 'MARCOS', 0, 0));
-// registroAux.push(new Registro(1, [], [], [], [], [], []));
-
-// trabajadores.push(new Personal(2, 'LUCIANA', 0, 0));
-// registroAux.push(new Registro(2, [], [], [], [], [], []));
-
-// trabajadores.push(new Personal(3, 'PAULA', 0, 0));
-// registroAux.push(new Registro(3, [], [], [], [], [], []));
-
-// trabajadores.push(new Personal(4, 'MAXI', 0, 0));
-// registroAux.push(new Registro(4, [], [], [], [], [], []));
 
 // function check()
 //  {
@@ -388,13 +376,5 @@ eliminarTodo.addEventListener('click', async () => {
 
 //-----
 
-// let miFormulario = document.getElementById("formulario");
-// miFormulario.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     console.log("Formulario enviado");
-//     let formulario= e.target
-//     console.log(formulario.children[0].value);
-//     console.log(formulario.children[1].value);
-// });
 
 

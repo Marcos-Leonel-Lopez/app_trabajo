@@ -1,41 +1,5 @@
 {
-  "trabajadores": [
-    {
-      "id": 1,
-      "Ficha": 101,
-      "Nombre": "MARCOS LOPEZ",
-      "Puesto": "GERENTE",
-      "porHora": 25
-    },
-    {
-      "id": 3,
-      "Ficha": 103,
-      "Nombre": "JUAN PEREZ",
-      "Puesto": "CHEF",
-      "porHora": 16
-    },
-    {
-      "id": 5,
-      "Ficha": 105,
-      "Nombre": "ALEJANDRA MORENO",
-      "Puesto": "LIMPIEZA",
-      "porHora": 10
-    },
-    {
-      "id": 7,
-      "Ficha": 107,
-      "Nombre": "PAULA VEGA",
-      "Puesto": "AYUDANTE DE COCINA",
-      "porHora": 10
-    },
-    {
-      "id": 9,
-      "Ficha": 109,
-      "Nombre": "PEPITO JUAREZ",
-      "Puesto": "POMPIN",
-      "porHora": 12312
-    }
-  ],
+  "trabajadores": [],
   "trabajadoresBackUp": [
     {
       "id": 1,
